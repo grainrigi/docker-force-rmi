@@ -1,17 +1,18 @@
-# rmi.js : Force docker
+# rmi.js : docker image remover
 
-## DISCLAIMER
+## :warning::warning: DISCLAIMER :warning::warning:
 
-:warning::warning: **This is an unofficial tool to remove docker images. There is no guarantee that this works properly, and might damage your docker system PERMANENTLY.**
-**USE THIS AT YOUR OWN RISK!** :warning::warning:
+**This is an unofficial tool to remove docker images. There is no guarantee that this works properly, and might damage your docker system PERMANENTLY.**
+**USE THIS AT YOUR OWN RISK!**
 
 ## What's this?
 
-Sometimes, you get `No such image:` error when you try to remove an imgage,
-even if the image is listed on 
+Sometimes, you get `No such image:` error when you try to remove an image,
+even if the image is listed in `docker image ls` result.
 
-This occurs when an image exists with name `docker.io/[image-name]` in your docker daemon's image database,
+This occurs when the image exists with name `docker.io/[image-name]` in your docker daemon's image database,
 but the plain `[image-name]` doesn't.
+(You can check `/var/lib/docker/image/overlay2/repositories.json` to confirm if this is the case.)
 
 In this case, you cannot remove the image and its content using docker CLI.
 
